@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+</head>
+<body>
+    <div id="colorBox" style="width: 200px; height: 200px; background-color: blue;"></div>
+    <button onclick="changeColor()">Change Color</button>
+
+    <script>
+        function changeColor() {
+            let box = document.getElementById("colorBox");
+            let currentColor = box.style.backgroundColor;
+            if (currentColor === "blue") {
+                box.style.backgroundColor = "green";
+            } else if (currentColor === "green") {
+                box.style.backgroundColor = "red";
+            } else {
+                box.style.backgroundColor = "blue";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Validation</title>
+</head>
+<body>
+    <input type="number" id="numberInput" placeholder="Introduceti un nr (1-100)">
+    <button onclick="validateNumber()">Trimite</button>
+    <p id="message"></p>
+
+    <script>
+        function validateNumber() {
+            let inputField = document.getElementById("numberInput");
+            let message = document.getElementById("message");
+            let num = Number(inputField.value);
+            while (isNaN(num) || num < 1 || num > 100) {
+                message.innerText = "Numar invalid! Introduceti un nr intre 1 si 100.";
+                message.style.color = "red";
+                return; 
+            }
+
+            message.innerText = "Numar valid: " + num;
+            message.style.color = "green";
+        }
+    </script>
+</body>
+</html>

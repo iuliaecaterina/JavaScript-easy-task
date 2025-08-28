@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Items</title>
+</head>
+<body>
+    <button onclick="addItems()">Add 5 Items</button>
+    <button onclick="removeRandomItems()">Remove 2 Random Items</button>
+    <ul id="itemList"></ul>
+
+    <script>
+        function addItems() {
+            let ul = document.getElementById("itemList");
+            ul.innerHTML = ""; 
+            for (let i = 1; i <= 5; i++) {
+                let li = document.createElement("li");
+                li.innerText = `Item ${i}`;
+                ul.appendChild(li);
+            }
+        }
+
+        function removeRandomItems() {
+            let ul = document.getElementById("itemList");
+            let items = ul.getElementsByTagName("li");
+            let itemCount = items.length;
+
+            if (itemCount > 1) {
+                let firstIndex = Math.floor(Math.random() * itemCount);
+                ul.removeChild(items[firstIndex]);
+
+                items = ul.getElementsByTagName("li");
+                itemCount = items.length; 
+
+                if (itemCount > 1) { 
+                    let secondIndex = Math.floor(Math.random() * itemCount);
+                    ul.removeChild(items[secondIndex]);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
